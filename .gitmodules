@@ -1,0 +1,12 @@
+[submodule "anthropic-cookbook"]
+	path = anthropic-cookbook
+	url = https://github.com/anthropics/anthropic-cookbook.git
+[submodule "courses"]
+	path = courses
+	url = https://github.com/anthropics/courses.git
+[submodule "prompt-eng-interactive-tutorial"]
+	path = prompt-eng-interactive-tutorial
+	url = https://github.com/anthropics/prompt-eng-interactive-tutorial.git
+[submodule "openai-cookbook"]
+	path = openai-cookbook
+	url = https://github.com/openai/openai-cookbook.git
