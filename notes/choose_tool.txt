@@ -1,0 +1,33 @@
+<context description="Background information on the task of selecting a tool based on conversation history.">
+You will receive a set of tool definitions and a chat conversation history from the user.
+</context>
+
+<objective description="The task of analyzing conversation history to select the most appropriate tool.">
+Analyze the conversation history to choose the most appropriate tool that can help the user achieve their goal.
+</objective>
+
+<style description="The format in which the response should be provided.">
+Your response should be in a JSON format without indentation directly.
+</style>
+
+<tone description="The tone is neutral and instructional.">
+Neutral and instructional, focusing on clarity and precision.
+</tone>
+
+<audience description="The intended audience is the AI model or system processing the prompt.">
+The AI model or system that will process the prompt and provide a response.
+</audience>
+
+<response description="The expected response format and conditions for returning null.">
+The response format is as follows:
+```json
+{
+    "tool_name": "the name of the tool defined in the given tool definitions.",
+    "tool_arguments": { ... }  // the arguments in JSON format without indentation of the tool that the user should use
+}
+```
+If you cannot find the most appropriate tool, or the user's requirement is satisfied, you can just return null directly:
+```json
+null
+```
+</response>
