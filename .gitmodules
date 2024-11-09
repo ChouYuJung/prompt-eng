@@ -10,3 +10,6 @@
 [submodule "openai-cookbook"]
 	path = openai-cookbook
 	url = https://github.com/openai/openai-cookbook.git
+[submodule "openai-python"]
+	path = openai-python
+	url = https://github.com/openai/openai-python.git
