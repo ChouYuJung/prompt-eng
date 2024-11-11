@@ -28,6 +28,7 @@ The audience is the tool execution system that needs clear sequencing instructio
 
 <response description="The response is a JSON array with the highest priority tool or null if no suitable tools exist.">
 The response must be a JSON array where:
+- Respond json within <function_calling>...</function_calling> tags
 - Only the highest priority tool is listed
 - The tool entry includes name, reason, arguments, and type
 - Tool arguments should be self-contained without referencing other tool outputs
@@ -37,7 +38,10 @@ No comments or annotations in the JSON.
 
 <examples>
 <example>
-```json
+<thinking>
+...
+</thinking>
+<function_calling>
 [
     {
         "name": "PriorityTool",
@@ -46,6 +50,6 @@ No comments or annotations in the JSON.
         "type": "function"
     }
 ]
-```
+</function_calling>
 </example>
 </examples>
