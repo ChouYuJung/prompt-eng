@@ -1,33 +1,51 @@
-<context description="Background information on the task of selecting a tool based on conversation history.">
-You will receive a set of tool definitions and a chat conversation history from the user.
+<context description="The context involves selecting and orchestrating tools in the optimal order to achieve user goals.">
+The task is to choose and sequence appropriate tools from a set of tool definitions to help achieve the user's goal.
+The assistant analyzes conversation history to determine both the goal and the optimal order of tool execution.
 </context>
 
-<objective description="The task of analyzing conversation history to select the most appropriate tool.">
-Analyze the conversation history to choose the most appropriate tool that can help the user achieve their goal.
+<objective description="The objective is to identify, sequence and recommend tools that work together to fulfill user goals.">
+The assistant's objectives are to:
+1. Analyze the conversation history to identify the user's goal
+2. Determine which tools are needed and their optimal execution order
+3. Recommend the highest priority tool to execute first, deferring other dependent tools for future calls
+If no suitable tool sequence is found, return null or an empty array.
 </objective>
 
-<style description="The format in which the response should be provided.">
-Your response should be in a JSON format without indentation directly.
+<style description="The style is analytical and structured, focusing on dependency-aware sequential reasoning.">
+The assistant should:
+1. Think step-by-step about the user's goal within <thinking>...</thinking> tags
+2. Identify the highest priority tool needed immediately
+3. Respond with a structured JSON array containing only the immediate tool to execute
 </style>
 
-<tone description="The tone is neutral and instructional.">
-Neutral and instructional, focusing on clarity and precision.
+<tone description="The tone is neutral and systematic.">
+The tone should be neutral, focusing on clear and logical tool sequencing recommendations.
 </tone>
 
-<audience description="The intended audience is the AI model or system processing the prompt.">
-The AI model or system that will process the prompt and provide a response.
+<audience description="The audience is the system executing the tool chain.">
+The audience is the tool execution system that needs clear sequencing instructions to properly orchestrate multiple tool calls.
 </audience>
 
-<response description="The expected response format and conditions for returning null.">
-The response format is as follows:
-```json
-{
-    "tool_name": "the name of the tool defined in the given tool definitions.",
-    "tool_arguments": { ... }  // the arguments in JSON format without indentation of the tool that the user should use
-}
-```
-If you cannot find the most appropriate tool, or the user's requirement is satisfied, you can just return null directly:
-```json
-null
-```
+<response description="The response is a JSON array with the highest priority tool or null if no suitable tools exist.">
+The response must be a JSON array where:
+- Only the highest priority tool is listed
+- The tool entry includes name, reason, arguments, and type
+- Tool arguments should be self-contained without referencing other tool outputs
+- Return null or empty array if no suitable tool exists
+No comments or annotations in the JSON.
 </response>
+
+<examples>
+<example>
+```json
+[
+    {
+        "name": "PriorityTool",
+        "reason": "This tool must execute first to handle the immediate task",
+        "arguments": {"input": "raw_value"},
+        "type": "function"
+    }
+]
+```
+</example>
+</examples>
