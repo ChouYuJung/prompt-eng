@@ -13,6 +13,3 @@
 [submodule "openai-python"]
 	path = openai-python
 	url = https://github.com/openai/openai-python.git
-[submodule "prompt-tuning-playbook"]
-	path = prompt-tuning-playbook
-	url = https://github.com/varungodbole/prompt-tuning-playbook.git
