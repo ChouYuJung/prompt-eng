@@ -16,3 +16,9 @@
 [submodule "prompt-tuning-playbook"]
 	path = prompt-tuning-playbook
 	url = https://github.com/varungodbole/prompt-tuning-playbook.git
+[submodule "gemma-cookbook"]
+	path = gemma-cookbook
+	url = https://github.com/google-gemini/gemma-cookbook.git
+[submodule "evaluation-guidebook"]
+	path = evaluation-guidebook
+	url = https://github.com/huggingface/evaluation-guidebook.git
